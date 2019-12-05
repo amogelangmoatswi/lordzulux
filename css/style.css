@@ -1,0 +1,541 @@
+body, html{
+  height:100%;
+  margin:0;
+  font-size:16px;
+  font-family:"Lato", sans-serif;
+  font-weight:400;
+  line-height:1.8em;
+  color:#666;
+   list-style: none;
+}
+.pimg1, .pimg2, .pimg3, .pimg0{
+  position:relative;
+  opacity:0.80;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  /*
+    fixed = parallax
+    scroll = normal
+  */
+  background-attachment: fixed;
+}
+
+.pimg1{
+  background-image:url('../imgs/4.jpg');
+  min-height:100%;
+}
+
+.logo img{
+  float: right;
+  width: 100px;
+  height: auto;
+}
+
+.pimg2{
+  background-image:url('../imgs/3.jpg');
+  min-height:400px;
+}
+
+.pimg3{
+  background-image:url('../imgs/6.jpg');
+  min-height:400px;
+}
+.pimg0{
+  background-image:url('../imgs/1.jpg');
+  min-height:100%;
+}
+
+.section{
+
+  padding:100px 100px;
+}
+
+.section-light{
+  background-color:#f4f4f4;
+  color:#666;
+   text-align:center;
+}
+.section-dark h1, .section-light h2{
+    font-size:40px;
+    text-align: center;
+}
+.section-light p,.section-dark p{
+   font-size:20px;
+}
+.section-dark{
+  background-color:#282e34;
+  color:#ddd;
+     text-align:center;
+ 
+}
+.ftext{
+  position:absolute;
+  top:60%;
+  width:100%;
+  text-align:center;
+  color:#FFF;
+  font-size:20px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ptext/*,ltext*/{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ctext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:15px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+.ctext .border{
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+    cursor: default;
+  color:#0ff;
+box-shadow: 0 0 10px #0ff,0 0 40px #0ff,0 0 80px #0ff;
+transition-delay: 5s;
+transition: 2s ease;
+}
+.ptext .border/*,.ltext .border*/{
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+    cursor: default;
+  color:#0ff;
+box-shadow: 0 0 10px #0ff,0 0 40px #0ff,0 0 80px #0ff;
+transition-delay: 5s;
+transition: 2s ease;
+}
+
+.ptext .border.trans{
+  background-color:transparent;
+}
+.ctext .border.trans{
+  background-color:transparent;
+}
+/*.ltext .border{
+  background-color:transparent;
+}*/
+
+
+@media(max-width:568px){
+  .pimg1, .pimg2, .pimg3, .pimg4{
+    background-attachment:scroll;
+  }
+}
+
+
+.backg:hover{
+  cursor: pointer;
+  text-shadow: 1px -1px 0px #919191,
+  1px -2px 1px #fff,
+  1px -3px 1px #fff,
+  1px -4px 1px #fff,
+  1px 1px 0px rgba(242, 38, 19),
+  1px 2px 1px rgba(242, 38, 19),
+  1px 3px 1px rgba(242, 38, 19),
+  1px 4px 1px rgba(242, 38, 19);
+    transition: 0.8s all;
+  }
+.menu-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.menu-wrap .toggler{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+.menu-wrap .hambuger{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  padding: 1rem;
+  background: transparent;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.menu-wrap .hambuger >div{
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  transition: all 0.4s ease;
+}
+.menu-wrap .hambuger> div:before,
+.menu-wrap .hambuger> div:after{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 4px;
+  background: inherit;
+}
+.menu-wrap .hambuger> div:after{
+  top: 10px;
+}
+.menu-wrap .toggler:checked +.hambuger >div{
+  transform: rotate(135deg);
+}
+
+.menu-wrap .toggler:checked +.hambuger >div:before,
+.menu-wrap .toggler:checked +.hambuger >div:after {
+   top:0; 
+  transform: rotate(90deg);
+}
+
+.menu-wrap .toggler:checked:hover +.hambuger >div{
+  transform: rotate(225deg);
+}
+.menu-wrap .toggler:checked ~ .Menu{
+  visibility: visible;
+}
+.menu-wrap .toggler:checked ~ .Menu>div{
+  transform: scale(1);
+  transition-duration: 0.75s; 
+}
+.menu-wrap .toggler:checked ~ .Menu>div>div{
+ opacity: 1;
+  transition-duration: 0.4s ease; 
+}
+.menu-wrap .Menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility:hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.menu-wrap .Menu>div{
+  background: rgba(13,110,139,0.60);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items:center;
+  justify-content: center;
+  transform: scale(0);
+  transform: all 0.4s ease;
+}
+
+.menu-wrap .Menu>div>div{
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity:0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .Menu >div>div>ul>li{
+  list-style: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+      transform: translate(-50%,-50%);
+
+}
+.Menu >div>div>ul>li>a{
+  display: block;
+  font-size: 20px;
+  padding: 10px 10px;
+  color: white;
+  background: #34495e;
+  cursor: pointer;
+}
+.Menu>div>div>ul>li>a:hover{
+  animation: shake 0.2s infinite;
+}
+
+@keyframes shake{
+
+  0%{transform: translate(0px,0px) rotate(0deg);}
+   25%{transform: translate(1px,1px) rotate(1deg);}
+    50%{transform: translate(-1px,-1px) rotate(-1deg);}
+     75%{transform: translate(-2px,-1px) rotate(2deg) ;}
+    100%{transform: translate(-1px,-1px) rotate(-1deg);}
+}
+.menu-wrap .Menu >div>div>ul>li>a{
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+
+}
+.container{
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: default;
+}
+.pricingtabele,.pricingtabele2,.pricingtabele3{
+  background: #f1f1f1;
+  flex: 1;
+  margin: 10px;
+  text-transform: uppercase;
+}
+.pricingtabele .prih{
+
+  background-image: linear-gradient(125deg,#2c3e50,#95a5a6);
+  /*background: #2c3e50;*/
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+}
+.pricingtabele2 .prih{
+        background-image: linear-gradient(115deg,#290069,#9b59b6);
+  /*background: #290069;*/
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+}
+.pricingtabele3 .prih{
+  background-image: linear-gradient(125deg,#e74c3c,#f39c12);
+  /*background: #c0392b;*/
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+.price{
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px; /* try logog*/
+}
+.price span{
+  font-size: 30px;
+}
+ 
+.title{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,50%);
+  width: 80%;
+  max-width: 360px;
+  text-align:center;
+  padding: 8px 0;   
+}
+.pricingtabele2 .title{
+  background-image: linear-gradient(125deg,#3498db,#9b59b6);
+}
+.pricingtabele .title{
+  background-image: linear-gradient(125deg,#34495e,#95a5a6);
+}
+.pricingtabele3 .title{
+  background-image: linear-gradient(125deg,#e74c3c,#f39c12);
+}
+.pricinglist{
+  padding: 10px 20px;
+}
+
+.pricinglist li{
+  margin: 8px 0;
+  font-size: 14px;
+  color: #344;
+  text-align: center;
+  list-style: none;
+}
+
+.border{
+  width: 80px;
+  height: 2px;
+  background: grey;
+  margin: auto;
+}
+.pricingtabele a,.pricingtabele2 a,.pricingtabele3 a{
+  display: block;
+background:gray;
+color: white;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 15px;
+  border: 1px soild;
+  max-width: 360px;
+  border-radius: 10px;
+}
+
+.pricingtabele a:hover{
+  border-radius: 30px;
+    background:#2c3e50;
+  color: #fff;
+  transition: 0.2s all;
+}
+.pricingtabele2 a:hover{
+  border-radius: 30px;
+      background:#3498db;
+  color: #fff;
+  transition: 0.2s all;
+  }
+.pricingtabele3 a:hover{
+  border-radius: 30px;
+    background:#c0392b;
+  color: #fff;
+  transition: 0.2s all;
+}
+@media screen and (max width: 780px){
+  .pricingtabele,.pricingtabele2,.pricingtabele3{flex: 100%;}
+
+}
+.cbtns{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+.btnss{
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background: white;
+  margin: 10px;
+  border-radius: 30%;
+  box-shadow: 0 5px 15px -5px #00000070;
+  color: #3498db;
+  overflow: hidden;
+  position: relative;
+}
+.btnss img{
+  position: relative;
+  display: flex;
+    width: 50px;
+      height: auto;
+       margin: 20px;
+}
+.textb{
+  position:  absolute;
+  top:50%;
+  width:auto;
+  text-align:center;
+  color:#000;
+  font-size:13px;
+
+  text-transform:uppercase;}
+  .textbb{
+  position:  absolute;
+  top:50%;
+  width:auto;
+  text-align:center;
+  color:#000;
+  font-size:10px;
+
+  text-transform:uppercase;
+}
+
+.cbtns span{
+position: relative;
+ width: 130px;
+    background: black;
+    color: white;
+    padding:7px ;
+    text-align:center;
+    display: block;
+    margin:auto;
+    height: auto;
+ 
+    cursor: pointer;
+  overflow: hidden;
+    box-shadow: 0 0 10px #FFDB58;
+border-radius: 8px;
+opacity: 0;
+transition: 0.6s opacity;
+}
+
+.btnss:hover + .textb, .btnss:hover + .textbb{
+  opacity:1;
+transition: 0.6s opacity;
+}
+.btnss img:hover{
+    transition: 0.4s ease;
+}
+.btnss:hover i{
+  transform: scale(1.3);
+  color: #f1f1f1;
+
+}
+.btnss::before{
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: #3498db;
+  transform: rotate(45deg);
+  left: -110%;
+  top: 90%;
+}
+.btnss:hover::before{
+  animation: aaa 0.7s 1;
+  top: -10%;
+  left: -10%;
+}
+@keyframes aaa {
+  0%{
+    left: -110%;
+    top: 90%;
+  }50%{
+    left: 10%;
+    top: -30%;
+  }100%{
+    top: -10%;
+    left: -10%;
+  }
+}
+ Watts Water Technologies EMEA B.V. is the European Holding Company and is a Division of Watts Water Technologies Inc., a world-wide leading manufacturer of products that contribute to comfort and safety in the area of water (quality) for domestic, commercial and industrial applications. Watts Water Technologies Inc. is listed on the New York Stock Exchange (NYSE) with the symbol WTS.
+ 
+As a business leader, you work hard to ensure that your company has all the resources and materials it needs to achieve operational and strategic goals. However, you may be missing the one crucial resource that isn’t just vital to your company’s day-to-day operations; it’s also critical to your company’s growth.
+
+Information technology, or IT, provides a solid foundation for businesses to conduct daily operations, enhance their company communications, increase workplace productivity, and provide a layer of security for confidential data. In short, information technology can give your business the boost it needs to compete at a higher level within your industry, no matter what your size or the number of employees you have.
+
+Fortunately, you don’t need to implement a full-time IT department in your business to enjoy the benefits of information technology. A high-quality IT outsourcing company can provide you with the services your business needs to meet its objectives. Apart from advice on your IT needs, an IT outsourcing company can estimate, manage, implement, deploy, and administer IT systems on your company’s behalf. This range of service can include the following:
+
+Network Installation and Office Setup: This can provide your company with the hardware and software it needs to perform day-to-day operations at an efficient level.
+Onsite and Offsite Maintenance and Support: IT needs don’t end with network installation; IT companies should provide you with ongoing support in case you encounter problems with your information technology.
+VoIP Installation: IT companies can make workplace communications easier with high-quality VoIP installation.
+Employee Training: Hardware upgrades and network installation can leave your employees feeling confused or uncertain; that’s why it’s critical to use an IT company that provides comprehensive yet user-friendly employee training.
+Security Cameras: An IT company can provide you with security cameras, so you can protect your company from theft committed by customers and employees.
+Server Upgrades and Desktop Support: Your server needs may change over time, which is why it’s critical to use an IT company that can provide you with upgrades and support as you need them.
+As you can see, an IT company can provide your business with the foundation it needs to build a successful and long-lasting business. Ensure that you make an IT outsourcing company part of your business strategy, as it can lead to more productive employees and a bigger bottom line.
